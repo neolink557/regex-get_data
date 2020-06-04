@@ -10,5 +10,5 @@ class Connection(object):
 
     def post(self,url,json,**kwargs):
         response = requests.post(self.URL+url,json=json)
-        print(json,"STATUS_CODE: " + response.status_code)
+        print(json,response.status_code)
         return response
