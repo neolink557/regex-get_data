@@ -1,7 +1,6 @@
 # regex-get_data
 
 
-##This is a practice test of regex used for
-##get raw data from text file and convert it into functional json.
+##This is a practice test of regex used for get raw data from text file and convert it into functional json.
 
 interpreted created for u4u app.
