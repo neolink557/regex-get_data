@@ -16,7 +16,7 @@ class Data(object):
 
     def find_data(self):
         self.delete_spaces()
-        pattern ='\(\d\) Grupo.*?Cupos disponibles: \d'
+        pattern ='\(\d{1,2}\) Grupo.*?Cupos disponibles: \d'
         with open(self.NAME,encoding="utf8") as stream:
             contents=stream.read()
             match=re.findall(pattern,contents,flags=re.MULTILINE|re.UNICODE)
