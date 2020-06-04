@@ -1,4 +1,3 @@
-import re
 import teachers
 import connection
 import modify_data
