@@ -2,10 +2,13 @@ import re
 
 class Data(object):
     """docstring for Data."""
-    NAME='horario.txt'
+    NAME=''
+    PATTERN=''
 
-    def __init__(self):
+    def __init__(self,file_name,pattern):
         super(Data, self).__init__()
+        self.NAME = file_name+".txt"
+        self.PATTERN = pattern
 
     def delete_spaces(self):
         with open(self.NAME,encoding="utf8") as stream:
@@ -16,8 +19,7 @@ class Data(object):
 
     def find_data(self):
         self.delete_spaces()
-        pattern ='\(\d{1,2}\) Grupo.*?Cupos disponibles: \d'
         with open(self.NAME,encoding="utf8") as stream:
             contents=stream.read()
-            match=re.findall(pattern,contents,flags=re.MULTILINE|re.UNICODE)
+            match=re.findall(self.PATTERN,contents,flags=re.MULTILINE|re.UNICODE)
         return match
