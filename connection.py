@@ -12,3 +12,9 @@ class Connection(object):
         response = requests.post(self.URL+url,json=json)
         print(json,response.status_code)
         return response
+
+    def get(self,url,**kwargs):
+        response = requests.get(self.URL+url)
+        json = response.json()
+        print(json,response.status_code)
+        return json

@@ -25,7 +25,6 @@ class Teachers(object):
                 raw_teachers.append(teacher[0])
             else:
                 raw_teachers.append("no value")
-        print(list(set(raw_teachers)))
         return list(set(raw_teachers))
 
     def create_dict_teachers(self,data):

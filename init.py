@@ -15,13 +15,27 @@ t = teachers.Teachers()#needs the ctrl+ a and ctrl+v of the page
 s = subjects.Subjects()#needs the html of the page
 c = connection.Connection()
 
+career_id=int(input("id"))
+
+#teachers
 teachers=t.create_dict_teachers(t.clean_teachers_data(mt.find_data()))
 for teacher in teachers:
-    c.post("teachers/", teacher)
+    response=c.post("teachers/", teacher)
+    if not response.status_code in range(200,299):
+        print("NO CREADO")
 
+#subjects
 result = ms.find_data()
-
+size=len(c.get("subjects/"))
 for subject in result:
     match=s.get_subjects(subject)
     json =s.create_dict_subjects(match)
-    c.post("subjects/", json)
+    dict = {}
+    size=size+1
+    dict['subject'] = size;
+    dict['career'] = 1;
+    response=c.post("subjects/", json)
+    if response.status_code in range(200,299):
+        c.post('subjectsbycareer/', dict)
+    else:
+        print("NO CREADO")
